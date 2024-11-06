@@ -1,0 +1,77 @@
+/**
+ * Custom `@font-face` rules
+ *
+ * These will be added immediately before Tailwind’s `base` layer.
+ */
+
+ @font-face {
+  font-family: 'Cormorant Infant';
+  src: url('static/CormorantInfant-MediumItalic.woff2') format('woff2'),
+      url('static/CormorantInfant-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Infant';
+  src: url('static/CormorantInfant-Medium.woff2') format('woff2'),
+      url('static/CormorantInfant-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Supreme';
+  src: url('static/Supreme-MediumItalic.woff2') format('woff2'),
+      url('static/Supreme-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Supreme';
+  src: url('static/Supreme-BoldItalic.woff2') format('woff2'),
+      url('static/Supreme-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Supreme';
+  src: url('static/Supreme-LightItalic.woff2') format('woff2'),
+      url('static/Supreme-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Supreme';
+  src: url('static/Supreme-Bold.woff2') format('woff2'),
+      url('static/Supreme-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Supreme';
+  src: url('static/Supreme-Medium.woff2') format('woff2'),
+      url('static/Supreme-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Supreme';
+  src: url('static/Supreme-Light.woff2') format('woff2'),
+      url('static/Supreme-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}

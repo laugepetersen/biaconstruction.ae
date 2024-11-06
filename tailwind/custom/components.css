@@ -1,0 +1,155 @@
+/**
+ * Custom styles to immediately follow Tailwind’s `components` layer
+ *
+ * “Add more opinionated, complex classes like buttons, form controls, alerts,
+ * etc; the sort of pre-built components you often see in other frameworks that
+ * you might need to override with utility classes.”
+ *
+ * — from https://tailwindcss.com/docs/plugins#adding-components
+ */
+
+.button {
+  @apply font-medium inline-flex px-5 py-3 leading-tight items-center text-center gap-4 rounded-full border border-transparent text-base;
+  &.secondary {
+    @apply text-black border-black;
+    &.inverted {
+      @apply text-white border-white;
+    }
+  }
+  &.primary {
+    @apply bg-black text-white border-black;
+    &.inverted {
+      @apply bg-white text-black border-white;
+    }
+  }
+}
+
+.link {
+  @apply font-medium tracking-wider uppercase;
+}
+
+.gradient-text {
+	@apply bg-clip-text text-transparent;
+  background-image: repeating-linear-gradient(to bottom, rgba(40, 34, 32, 1) 0, rgba(40, 34, 32, 1) 0.4em, rgba(40, 34, 32, 0.8) 1em, rgba(40, 34, 32, 0.8) 1.2em);
+  &.inverted {
+    background-image: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 0.4em, rgba(255, 255, 255, 0.7) 1em, rgba(255, 255, 255, 0.7) 1.2em);
+  }
+}
+
+.gradient-border {
+  @apply relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 99px;
+    border: 1px solid transparent;
+    background: conic-gradient(
+      from 45deg,
+      rgba(40, 34, 32, 1),
+      rgba(40, 34, 32, 0.3),
+      rgba(40, 34, 32, 1),
+      rgba(40, 34, 32, 0.3),
+      rgba(40, 34, 32, 1)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+}
+
+.subtitle {
+  @apply text-xs font-medium tracking-wider uppercase leading-none px-3 py-2 rounded-full inline-flex items-center gap-1.5 relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 99px;
+    border: 1px solid transparent;
+    background: conic-gradient(
+      from 45deg,
+      rgba(40, 34, 32, 1),
+      rgba(40, 34, 32, 0.3),
+      rgba(40, 34, 32, 1),
+      rgba(40, 34, 32, 0.3),
+      rgba(40, 34, 32, 1)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+}
+.subtitle.inverted::before {
+  background: conic-gradient(
+    from 45deg,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 1)
+  );
+}
+
+.gradient-radial {
+  background: radial-gradient(ellipse closest-side, rgba(40, 34, 32, 0.2) 0%, rgba(40, 34, 32, 0.8) 80%);
+}
+
+#mobile-nav {
+  @apply transition-all duration-300 origin-top-right;
+  &.open {
+    @apply opacity-100 scale-100;
+  }
+  &:not(.open) {
+    @apply opacity-0 scale-0;
+  }
+}
+
+#masthead {
+  @apply text-black;
+  &.light-mode {
+    @apply text-white; 
+  }
+  .scroll & {
+    @apply !bg-bg-gray/90 !backdrop-blur-md !text-black;
+  }
+}
+
+.wysiwyg {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-medium !tracking-tight;
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    @apply mb-[0.5em];
+  }
+
+  h1 {
+    @apply text-6xl !leading-[1.1em];
+  }
+  
+  h2 {
+    @apply text-5xl !leading-[1.17em];
+  }
+  
+  h3 {
+    @apply text-3xl !leading-tight;
+  }
+  
+  h4 {
+    @apply text-2xl !leading-tight;
+  }
+  
+  h5 {
+    @apply text-lg !leading-tight;
+  }
+  
+  p {
+    @apply text-base leading-relaxed opacity-80;
+  }
+}
