@@ -10,7 +10,7 @@
  */
 
 import Swiper from 'swiper';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
 
 window.Swiper = Swiper;
 
@@ -80,4 +80,22 @@ new Swiper('.swiper.slider', {
   }
 });
 
+// eslint-disable-next-line no-undef
+const heroSlider = new Swiper('.hero-banner-slider', {
+  modules: [Autoplay, EffectFade, Pagination],
+  effect: 'fade',
+  pagination: {
+    el: '.hero-pagination',
+
+  },
+  fadeEffect: {
+    crossFade: true,
+  },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  speed: 1000,
+  loop: true,
+});
 

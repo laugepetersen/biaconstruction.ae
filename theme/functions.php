@@ -143,7 +143,7 @@ function _tw_scripts()
 	wp_enqueue_style('_tw-style', get_stylesheet_uri(), array(), _TW_VERSION);
 	wp_enqueue_script('_tw-script', get_template_directory_uri() . '/js/script.min.js', array(), _TW_VERSION, true);
 
-	wp_enqueue_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), _TW_VERSION);
+	// wp_enqueue_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), _TW_VERSION);
 
 	// if (is_singular() && comments_open() && get_option('thread_comments')) {
 	// 	wp_enqueue_script('comment-reply');

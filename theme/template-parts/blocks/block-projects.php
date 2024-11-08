@@ -41,7 +41,7 @@ $buttons = get_sub_field('buttons');
 
         <div class="">
 
-          <?php if (count($gallery) >= 3): ?>
+          <?php if (is_array($gallery) && count($gallery) >= 3): ?>
             <div class="grid grid-cols-[4fr_1fr] gap-0.5 items-start relative">
               <div class="aspect-[4/5] md:aspect-square lg:aspect-video bg-black relative">
                 <?php echo wp_get_attachment_image($gallery[0], 'xl', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
@@ -83,7 +83,7 @@ $buttons = get_sub_field('buttons');
       'posts_per_page' => -1,
       'fields' => 'ids',
     ]); ?>
-    <div class="grid gap-x-8 gap-y-20 grid-cols-1 lg:grid-cols-2">
+    <div class="grid gap-x-8 gap-y-10 grid-cols-1 lg:grid-cols-2 lg:pb-40">
       <?php foreach ($all_projects as $index => $project): ?>
         <?php
         $title = get_the_title($project);
@@ -91,8 +91,8 @@ $buttons = get_sub_field('buttons');
         $gallery = get_field('gallery', $project);
         $type = get_field('project_type', $project);
         ?>
-        <div class="relative group <?php echo $index % 3 === 1 ? 'lg:top-40' : ''; ?>">
-          <div class="grid grid-cols-[4fr_1fr] relative">
+        <div class="relative group <?php echo $index % 2 === 1 ? 'lg:top-40' : ''; ?>">
+          <div class="grid grid-cols-[4fr_1fr] gap-0.5 relative">
             <a href="<?php echo $permalink; ?>" class="absolute-cover z-10"></a>
             <div class="aspect-square md:aspect-square bg-black relative">
               <?php if ($gallery[0]): ?>

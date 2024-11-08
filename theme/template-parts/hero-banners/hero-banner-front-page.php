@@ -41,11 +41,7 @@ $slides = get_field('slides');
           <?php endif; ?>
         </div>
 
-        <div class="flex gap-1">
-          <div class="w-10 h-0.5 rounded-full bg-white"></div>
-          <div class="w-10 h-0.5 rounded-full bg-white/20"></div>
-          <div class="w-10 h-0.5 rounded-full bg-white/20"></div>
-        </div>
+        <div class="flex gap-1 hero-pagination"></div>
       </div>
     </div>
   </div>
@@ -53,9 +49,15 @@ $slides = get_field('slides');
   <?php if ($slides): ?>
     <div class="absolute-cover z-0">
       <div class="absolute top-0 left-0 w-[150vw] h-full translate-x-[-25vw] z-10 gradient-radial"></div>
-      <?php foreach ($slides as $image_id): ?>
-        <?php echo wp_get_attachment_image($image_id, 'xl', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
-      <?php endforeach; ?>
+      <div class="swiper hero-banner-slider absolute-cover">
+        <div class="swiper-wrapper">
+          <?php foreach ($slides as $image_id): ?>
+            <div class="swiper-slide">
+              <?php echo wp_get_attachment_image($image_id, 'xl', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
     </div>
   <?php endif; ?>
 

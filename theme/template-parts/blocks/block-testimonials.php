@@ -56,6 +56,17 @@ $buttons = get_sub_field('buttons');
               <div class="bg-dark rounded-full relative h-20 w-20 border-2 border-white overflow-hidden">
                 <?php echo wp_get_attachment_image($profile_picture, 'sm', false, ['class' => 'absolute-cover object-cover']); ?>
               </div>
+              <div class="flex items-center gap-1 my-2">
+                <?php foreach (range(1, 5) as $i): ?>
+                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_70_2890)">
+                      <path
+                        d="M10.1653 15L4.2873 18.09L5.4103 11.545L0.654297 6.91L7.2263 5.955L10.1653 0L13.1043 5.955L19.6763 6.91L14.9203 11.545L16.0433 18.09L10.1653 15Z"
+                        fill="currentColor" />
+                    </g>
+                  </svg>
+                <?php endforeach; ?>
+              </div>
               <p class="text-lg leading-7 opacity-80"><?= $review; ?></p>
               <p class="p text-black opacity-100 font-medium"><?= $name; ?></p>
             </div>

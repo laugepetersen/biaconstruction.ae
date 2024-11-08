@@ -121,6 +121,16 @@
 }
 
 .wysiwyg {
+  @apply text-base;
+
+  ul {
+    @apply mb-[1em] ml-[1em];
+  }
+  li {
+    @apply mb-[0.5em];
+    list-style-type: disc;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-medium !tracking-tight;
   }
@@ -151,5 +161,27 @@
   
   p {
     @apply text-base leading-relaxed opacity-80;
+  }
+}
+
+.hero-pagination {
+  .swiper-pagination-bullet {
+    @apply w-10 h-0.5 rounded-full bg-white/20 relative overflow-hidden;
+    &:before {
+      content: "";
+      @apply absolute top-0 left-0 bg-white w-0 h-full rounded-full;
+    }
+    &.swiper-pagination-bullet-active:before {
+      animation: progressBar 4000ms linear forwards;
+    }
+  }
+}
+
+@keyframes progressBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
