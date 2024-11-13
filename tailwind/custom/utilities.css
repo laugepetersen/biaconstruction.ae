@@ -11,3 +11,16 @@
  .pt-nav {
   @apply pt-[65px]
  }
+
+/* Fade animation utilities */
+.fade-element {
+  @apply opacity-0 transition-all duration-500 translate-y-4;
+  
+  &.fade-in {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  &.fade-out {
+    @apply opacity-0 -translate-y-4;
+  }
+}

@@ -172,7 +172,7 @@
       @apply absolute top-0 left-0 bg-white w-0 h-full rounded-full;
     }
     &.swiper-pagination-bullet-active:before {
-      animation: progressBar 4000ms linear forwards;
+      animation: progressBar 3000ms linear forwards;
     }
   }
 }
@@ -184,4 +184,76 @@
   to {
     width: 100%;
   }
+}
+
+
+
+
+/* Toast Notification */
+.toast-notification {
+  @apply fixed bottom-8 left-1/2 -translate-x-1/2 translate-y-full bg-white text-black px-8 py-4 rounded-lg flex items-center gap-3 shadow-md opacity-0 transition-all duration-300 z-50;
+}
+
+.toast-notification.show {
+  @apply translate-y-0 opacity-100;
+  & .checkmark {
+    animation: draw 2s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  }
+}
+
+/* Checkmark Animation */
+.checkmark {
+  @apply w-6 h-6 rounded-full block;
+  stroke-width: 2;
+  stroke: #4CAF50;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 340;
+  stroke-dashoffset: 340;
+}
+
+@keyframes draw {
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Button Loading Animation */
+.button-loader {
+  @apply w-5 h-5 rounded-full inline-block ml-2;
+  border: 2px solid #222222;
+  border-bottom-color: transparent;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse-stroke {
+  0% {
+    stroke-width: 0;
+    stroke-opacity: 0.8;
+  }
+  100% {
+    stroke-width: 30;
+    stroke-opacity: 0;
+  }
+}
+
+@keyframes bounce-scale {
+  0%, 28%, 100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.15);
+  }
+}
+
+.whatsapp-icon {
+  animation: bounce-scale 4s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.whatsapp-pulse {
+  animation: pulse-stroke 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

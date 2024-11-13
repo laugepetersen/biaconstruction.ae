@@ -9,10 +9,10 @@ $buttons = get_sub_field('buttons');
 
 <div class="bg-black pt-40 pb-20 relative text-white md:text-right">
   <div class="absolute-cover">
-    <?php echo wp_get_attachment_image($background_image, 'xl', false, ['class' => 'absolute-cover object-cover']); ?>
+    <?php echo wp_get_attachment_image($background_image, 'lg', false, ['class' => 'absolute-cover object-cover']); ?>
   </div>
 
-  <div class="container relative z-10">
+  <div class="container relative z-10" data-fade>
     <?php if ($subtitle): ?>
       <div class="grid-container">
         <div class="col-span-12 xl:col-span-11">
@@ -52,7 +52,7 @@ $buttons = get_sub_field('buttons');
             $company_title = get_field('company_title', $testimonial);
             $review = get_field('review', $testimonial);
             ?>
-            <div class="flex flex-col items-center text-center gap-2">
+            <div class="flex flex-col items-center text-center gap-2" data-fade>
               <div class="bg-dark rounded-full relative h-20 w-20 border-2 border-white overflow-hidden">
                 <?php echo wp_get_attachment_image($profile_picture, 'sm', false, ['class' => 'absolute-cover object-cover']); ?>
               </div>

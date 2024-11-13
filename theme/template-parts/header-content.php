@@ -37,7 +37,6 @@ $light_mode = is_front_page();
 						if ($button) {
 							continue;
 						}
-						$is_current = is_page($item['link']['ID']);
 						?>
 						<a class="link hover:underline underline-offset-[8px] p-2 -m-2 shrink-0"
 							href="<?php echo esc_url($item['link']['url']); ?>"
@@ -109,7 +108,6 @@ $light_mode = is_front_page();
 				if ($button === 'primary') {
 					continue;
 				}
-				$is_current = is_page($item['link']['ID']);
 				?>
 				<a href="<?php echo esc_url($item['link']['url']); ?>"
 					class="h2 hover:underline underline-offset-[8px] decoration-2 <?php echo $button ? $button : ''; ?>"

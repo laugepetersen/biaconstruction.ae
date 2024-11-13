@@ -5,8 +5,8 @@
  */
 
 /* Swiper imports */
-@import "../node_modules/swiper/swiper.css";
-@import "../node_modules/swiper/modules/effect-fade.css";
+@import "../node_modules/swiper/swiper.min.css";
+@import "../node_modules/swiper/modules/effect-fade.min.css";
 
 /**
  * This injects custom `@font-face` rules.

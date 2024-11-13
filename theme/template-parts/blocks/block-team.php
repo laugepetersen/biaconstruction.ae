@@ -11,7 +11,7 @@ $team = get_sub_field('team_members');
 
 
   <?php if ($title): ?>
-    <div class="grid-container">
+    <div class="grid-container" data-fade>
       <div class="col-span-12 lg:col-span-8 xl:col-start-2">
         <?php if ($subtitle): ?>
           <div class="subtitle mb-2"><span class="gradient-text"><?php echo $subtitle; ?></span></div>
@@ -22,7 +22,7 @@ $team = get_sub_field('team_members');
   <?php endif; ?>
 
   <?php if ($content): ?>
-    <div class="grid-container">
+    <div class="grid-container" data-fade>
       <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4 xl:col-start-2">
         <p class="p mt-4">
           <?php echo $content; ?>
@@ -33,7 +33,7 @@ $team = get_sub_field('team_members');
 
   <div class="grid-container mt-10">
     <?php foreach ($team as $member): ?>
-      <div class="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3">
+      <div class="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3" data-fade>
         <div class="relative aspect-square md:aspect-[4/5]">
           <?php echo wp_get_attachment_image(get_field('profile_picture', $member), 'md', false, ['class' => 'absolute-cover object-cover object-top ']); ?>
         </div>

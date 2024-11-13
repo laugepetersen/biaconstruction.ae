@@ -7,7 +7,7 @@ $buttons = get_sub_field('buttons');
 
 <div class="overflow-hidden">
   <div class="container">
-    <div class="grid-container gap-y-0">
+    <div class="grid-container gap-y-0" data-fade>
       <?php if ($subtitle): ?>
         <div class="col-span-12 text-center">
           <div class="subtitle mb-2"><span class="gradient-text"><?php echo $subtitle; ?></span></div>
@@ -39,7 +39,7 @@ $buttons = get_sub_field('buttons');
                   <div class="absolute bottom-0 left-0 w-full h-1/3 z-20 bg-gradient-to-t from-black/80 to-transparent">
                   </div>
                   <?php if ($image = get_sub_field('image')): ?>
-                    <?php echo wp_get_attachment_image($image, 'lg', false, ['class' => 'absolute object-cover w-full h-full z-10']); ?>
+                    <?php echo wp_get_attachment_image($image, 'md', false, ['class' => 'absolute object-cover w-full h-full z-10']); ?>
                   <?php endif; ?>
                 </div>
               </div>

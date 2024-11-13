@@ -12,7 +12,7 @@ $buttons = get_sub_field('buttons');
   <div>
 
     <?php if ($title): ?>
-      <div class="grid-container">
+      <div class="grid-container" data-fade>
         <div class="col-span-12 lg:col-span-8 xl:col-start-2">
           <?php if ($subtitle): ?>
             <div class="subtitle mb-2"><span class="gradient-text"><?php echo $subtitle; ?></span></div>
@@ -23,7 +23,7 @@ $buttons = get_sub_field('buttons');
     <?php endif; ?>
 
     <?php if ($content): ?>
-      <div class="grid-container">
+      <div class="grid-container" data-fade>
         <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4 xl:col-start-2">
           <p class="p mt-4">
             <?php echo $content; ?>
@@ -39,7 +39,7 @@ $buttons = get_sub_field('buttons');
       <?php foreach ($projects as $project): ?>
         <?php $gallery = get_field('gallery', $project); ?>
 
-        <div class="">
+        <div class="" data-fade>
 
           <?php if (is_array($gallery) && count($gallery) >= 3): ?>
             <div class="grid grid-cols-[4fr_1fr] gap-0.5 items-start relative">
@@ -48,10 +48,10 @@ $buttons = get_sub_field('buttons');
               </div>
               <div class="h-full flex flex-col gap-0.5">
                 <div class="aspect-[4/5] md:aspect-square lg:aspect-video bg-black relative">
-                  <?php echo wp_get_attachment_image($gallery[1], 'md', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
+                  <?php echo wp_get_attachment_image($gallery[1], 'sm', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
                 </div>
                 <div class="h-full bg-black relative">
-                  <?php echo wp_get_attachment_image($gallery[2], 'md', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
+                  <?php echo wp_get_attachment_image($gallery[2], 'sm', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
                 </div>
               </div>
               <a href="<?php echo get_the_permalink($project); ?>" class="absolute-cover z-10"></a>
@@ -78,12 +78,15 @@ $buttons = get_sub_field('buttons');
 
   <?php elseif ($show_all): ?>
 
-    <?php $all_projects = get_posts([
+    <?php
+    $all_projects = get_posts([
       'post_type' => 'project',
       'posts_per_page' => -1,
       'fields' => 'ids',
-    ]); ?>
-    <div class="grid gap-x-8 gap-y-10 grid-cols-1 lg:grid-cols-2 lg:pb-40">
+    ]);
+    $pb_class = count($all_projects) % 2 === 0 ? 'lg:pb-40' : '';
+    ?>
+    <div class="grid gap-x-8 gap-y-10 grid-cols-1 lg:grid-cols-2 <?php echo $pb_class; ?>">
       <?php foreach ($all_projects as $index => $project): ?>
         <?php
         $title = get_the_title($project);
@@ -91,23 +94,23 @@ $buttons = get_sub_field('buttons');
         $gallery = get_field('gallery', $project);
         $type = get_field('project_type', $project);
         ?>
-        <div class="relative group <?php echo $index % 2 === 1 ? 'lg:top-40' : ''; ?>">
+        <div class="relative group <?php echo $index % 2 === 1 ? 'lg:top-40' : ''; ?>" data-fade>
           <div class="grid grid-cols-[4fr_1fr] gap-0.5 relative">
             <a href="<?php echo $permalink; ?>" class="absolute-cover z-10"></a>
             <div class="aspect-square md:aspect-square bg-black relative">
               <?php if ($gallery[0]): ?>
-                <?php echo wp_get_attachment_image($gallery[0], 'xl', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
+                <?php echo wp_get_attachment_image($gallery[0], 'lg', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
               <?php endif; ?>
             </div>
             <div class="flex flex-col gap-0.5">
               <div class="aspect-[4/5] md:aspect-square  bg-black relative">
                 <?php if ($gallery[1]): ?>
-                  <?php echo wp_get_attachment_image($gallery[1], 'md', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
+                  <?php echo wp_get_attachment_image($gallery[1], 'sm', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
                 <?php endif; ?>
               </div>
               <div class="h-full bg-black relative">
                 <?php if ($gallery[2]): ?>
-                  <?php echo wp_get_attachment_image($gallery[2], 'md', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
+                  <?php echo wp_get_attachment_image($gallery[2], 'sm', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
                 <?php endif; ?>
               </div>
             </div>

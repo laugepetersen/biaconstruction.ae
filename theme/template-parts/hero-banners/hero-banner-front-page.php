@@ -53,7 +53,7 @@ $slides = get_field('slides');
         <div class="swiper-wrapper">
           <?php foreach ($slides as $image_id): ?>
             <div class="swiper-slide">
-              <?php echo wp_get_attachment_image($image_id, 'xl', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
+              <?php echo wp_get_attachment_image($image_id, 'lg', false, ['class' => 'absolute-cover w-full h-full object-cover']); ?>
             </div>
           <?php endforeach; ?>
         </div>

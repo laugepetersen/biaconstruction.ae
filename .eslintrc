@@ -15,6 +15,9 @@
 			"env": {
 				"browser": true
 			},
+			"globals": {
+				"jQuery": true
+			},
 			"parserOptions": {
 				"ecmaVersion": "latest"
 			}

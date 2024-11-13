@@ -4,7 +4,7 @@ $blocks = get_sub_field('blocks');
 
 ?>
 
-<div class="container">
+<div class="container" data-fade>
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-3 gap-x-8">
     <?php foreach ($blocks as $block): ?>
       <div class="aspect-square grid items-end bg-black text-white relative overflow-hidden">

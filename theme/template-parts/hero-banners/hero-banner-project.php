@@ -14,7 +14,7 @@ $file_url = get_field('downloadable_pdf');
       <div class="grid gap-8">
 
         <div class="grid-container">
-          <div class="col-span-12 lg:col-span-8 xl:col-span-6 xl:col-start-2">
+          <div class="col-span-12 lg:col-span-8 xl:col-span-6 xl:col-start-2" data-fade>
             <?php if ($project_type): ?>
               <div class="subtitle mb-2">
                 <p class="gradient-text"><?= $project_type; ?></p>
@@ -40,7 +40,7 @@ $file_url = get_field('downloadable_pdf');
         </div>
 
         <?php if ($description): ?>
-          <div class="grid-container">
+          <div class="grid-container" data-fade>
             <div class="col-span-12 md:col-span-5 md:col-start-8 lg:col-start-7 xl:col-span-4 xl:col-start-7">
               <p class="p"><?= $description; ?></p>
               <?php if ($file_url): ?>

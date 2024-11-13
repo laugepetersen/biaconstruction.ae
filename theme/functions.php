@@ -141,7 +141,7 @@ add_action('widgets_init', '_tw_widgets_init');
 function _tw_scripts()
 {
 	wp_enqueue_style('_tw-style', get_stylesheet_uri(), array(), _TW_VERSION);
-	wp_enqueue_script('_tw-script', get_template_directory_uri() . '/js/script.min.js', array(), _TW_VERSION, true);
+	wp_enqueue_script('_tw-script', get_template_directory_uri() . '/js/script.min.js', array('jquery'), _TW_VERSION, true);
 
 	// wp_enqueue_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), _TW_VERSION);
 
@@ -231,3 +231,42 @@ require get_template_directory() . '/inc/register-post-types.php';
  * Register Image Sizes.
  */
 require get_template_directory() . '/inc/register-image-sizes.php';
+
+add_action('wp_ajax_handle_contact_form', 'handle_contact_form');
+add_action('wp_ajax_nopriv_handle_contact_form', 'handle_contact_form');
+
+function handle_contact_form()
+{
+	check_ajax_referer('contact_form_nonce', 'nonce');
+
+	$full_name = sanitize_text_field($_POST['full_name']);
+	$email = sanitize_email($_POST['email']);
+	$phone = sanitize_text_field($_POST['phone']);
+	$message = sanitize_textarea_field($_POST['message']);
+
+	// Validate required fields
+	if (empty($full_name) || empty($email) || empty($message)) {
+		wp_send_json_error([
+			'message' => 'Please fill in all required fields.'
+		]);
+	}
+
+	$to = get_field('contact_email', 'option');
+	$subject = 'New Contact Form Submission';
+	$body = "Name: $full_name\n";
+	$body .= "Email: $email\n";
+	$body .= "Phone: $phone\n";
+	$body .= "Message: $message\n";
+
+	$sent = wp_mail($to, $subject, $body);
+
+	if ($sent) {
+		wp_send_json_success([
+			'message' => 'Thank you for your message. We will get back to you soon!'
+		]);
+	} else {
+		wp_send_json_error([
+			'message' => 'There was a problem sending your message. Please try again later.'
+		]);
+	}
+}
